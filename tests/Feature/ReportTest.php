@@ -8,17 +8,13 @@ use Tests\TestCase;
 
 class ReportTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    // public function test_example()
-    // {
-    //     $response = $this->get('/');
+    use RefreshDatabase;
 
-    //     $response->assertStatus(200);
-    // }
+    public function setUp(): void
+    {
+        parent::setUp();
+        $this->artisan('db:seed', ['--class' => 'TestDataSeeder']);
+    }
 
     /**
      * @test
