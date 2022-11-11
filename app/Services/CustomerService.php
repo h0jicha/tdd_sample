@@ -6,12 +6,12 @@ use App\Models\Customer;
 
 class CustomerService
 {
-    public static function getCustomers()
+    public function getCustomers()
     {
         return Customer::query()->select(['id', 'name'])->get();
     }
 
-    public static function addCustomer($name)
+    public function addCustomer($name)
     {
         $customer = new Customer();
         $customer->name = $name;
