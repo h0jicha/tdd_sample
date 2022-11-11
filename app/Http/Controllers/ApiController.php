@@ -8,19 +8,19 @@ use Illuminate\Http\Request;
 
 class ApiController extends Controller
 {
-    public function getCustomers(): \Illuminate\Http\JsonResponse
+    public function getCustomers(CustomerService $customerService): \Illuminate\Http\JsonResponse
     {
-        return response()->json(CustomerService::getCustomers());
+        return response()->json($customerService->getCustomers());
     }
 
-    public function postCustomers(Request $request)
+    public function postCustomers(Request $request, CustomerService $customerService)
     {
         $this->validate(
             $request,
             ['name' => 'required'],
             ['name.required' => ':attribute は必須事項です']
         );
-        CustomerService::addCustomer($request->json('name'));
+        $customerService->addCustomer($request->json('name'));
     }
 
     public function getCustomer()
