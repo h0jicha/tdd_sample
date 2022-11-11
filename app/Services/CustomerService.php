@@ -8,7 +8,7 @@ class CustomerService
 {
     public static function getCustomers()
     {
-       return Customer::query()->select(['id', 'name'])->get();
+        return Customer::query()->select(['id', 'name'])->get();
     }
 
     public static function addCustomer($name)
