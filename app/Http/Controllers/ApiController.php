@@ -14,49 +14,45 @@ class ApiController extends Controller
 
     public function postCustomers(Request $request)
     {
-        $this->validate($request, ['name' => 'required']);
+        $this->validate(
+            $request,
+            ['name' => 'required'],
+            ['name.required' => ':attribute は必須事項です']
+        );
         $customer = new Customer();
         $customer->name = $request->json('name');
         $customer->save();
     }
 
-    public function getCustomer() 
+    public function getCustomer()
     {
-        
     }
 
-    public function postCustomer() 
+    public function postCustomer()
     {
-        
     }
 
-    public function deleteCustomer() 
+    public function deleteCustomer()
     {
-        
     }
 
-    public function getReports() 
+    public function getReports()
     {
-        
     }
 
-    public function postReport() 
+    public function postReport()
     {
-        
     }
 
-    public function getReport() 
+    public function getReport()
     {
-        
     }
 
-    public function putReport() 
+    public function putReport()
     {
-        
     }
-    
-    public function deleteReport() 
+
+    public function deleteReport()
     {
-        
     }
 }
